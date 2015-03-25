@@ -1,0 +1,4 @@
+Passphrase sign app
+-------------------
+
+Simple app that uses the input data (name, email and passphrase) to sign a person againts a private key.
