@@ -33,3 +33,6 @@ class TestCypher(object):
         decrypted_text = c.decrypt(encrypted_text)
 
         assert original_text != decrypted_text
+
+
+# Should add an additional functional test for the view

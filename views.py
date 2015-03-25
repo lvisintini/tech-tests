@@ -29,8 +29,7 @@ class PassphraseSign(MethodView):
 
         """
 
-        data = json.loads(request.data)
-        passphrase = data.get('passphrase', '')
+        data = json.loads(request.data) # Will break if malformed
 
         form = RequestSingnatureForm(**data)
 
@@ -40,8 +39,9 @@ class PassphraseSign(MethodView):
                 'success': False
             })
 
-        decrypted_private_key = AppCypher(passphrase).decrypt(ENCRYPTED_PRIVATE_KEY)
+        decrypted_private_key = AppCypher(form.data['passphrase']).decrypt(ENCRYPTED_PRIVATE_KEY)
 
+        # move this to form perhaps
         try:
             rsa_key = RSA.importKey(decrypted_private_key)
         except ValueError:
@@ -52,6 +52,7 @@ class PassphraseSign(MethodView):
 
         info = '{name} {surname} ({email})'.format(**form.data)
 
+        # does not handle well non ascii code
         signature_b64 = base64.b64encode(str(rsa_key.sign(info, '')[0])),
 
         return json.dumps({
