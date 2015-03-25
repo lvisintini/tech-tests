@@ -13,7 +13,7 @@ RSA_KEY_PAIR = RSA.generate(1024, e=65537)
 ENCRYPTED_PRIVATE_KEY = AppCypher(PRIVATE_KEY_RAW).encrypt(RSA_KEY_PAIR.exportKey("PEM"))
 
 
-class PassphraseSing(MethodView):
+class PassphraseSign(MethodView):
 
     def get(self):
         """
