@@ -6,6 +6,7 @@ from flask.views import MethodView
 from Crypto.PublicKey import RSA
 
 from cypher import AppCypher
+from forms import RequestSingnatureForm
 
 
 PRIVATE_KEY_RAW = 'Itsa me! Luigi!!!'
@@ -31,17 +32,25 @@ class PassphraseSign(MethodView):
         data = json.loads(request.data)
         passphrase = data.get('passphrase', '')
 
+        form = RequestSingnatureForm(**data)
+
+        if not form.validate():
+            return json.dumps({
+                'errors': form.errors,
+                'success': False
+            })
+
         decrypted_private_key = AppCypher(passphrase).decrypt(ENCRYPTED_PRIVATE_KEY)
 
         try:
             rsa_key = RSA.importKey(decrypted_private_key)
         except ValueError:
             return json.dumps({
-                'error': 'Invalid passphrase',
+                'errors': {'passphrase': ['Invalid passphrase', ]},
                 'success': False
             })
 
-        info = '{name} {surname} ({email})'.format(**data)
+        info = '{name} {surname} ({email})'.format(**form.data)
 
         signature_b64 = base64.b64encode(str(rsa_key.sign(info, '')[0])),
 
@@ -50,5 +59,3 @@ class PassphraseSign(MethodView):
             'info': info,
             'success': True
         })
-
-
