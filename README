@@ -1,8 +1,0 @@
-Passphrase sign app
--------------------
-
-Simple app that uses the input data (name, email and passphrase) to sign a person againts a private key.
-
-Some of the resources I used:
-- http://www.codekoala.com/posts/aes-encryption-python-using-pycrypto/
-- http://stackoverflow.com/questions/4232389/signing-and-verifying-data-using-pycrypto-rsa

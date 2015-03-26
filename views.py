@@ -1,17 +1,9 @@
-import base64
 import json
 
-from flask import request
+from flask import request, Response
 from flask.views import MethodView
-from Crypto.PublicKey import RSA
 
-from cypher import AppCypher
 from forms import RequestSingnatureForm
-
-
-PRIVATE_KEY_RAW = 'Itsa me! Luigi!!!'
-RSA_KEY_PAIR = RSA.generate(1024, e=65537)
-ENCRYPTED_PRIVATE_KEY = AppCypher(PRIVATE_KEY_RAW).encrypt(RSA_KEY_PAIR.exportKey("PEM"))
 
 
 class PassphraseSign(MethodView):
@@ -21,15 +13,17 @@ class PassphraseSign(MethodView):
             This is where the single page application is served
 
         """
-        return 'TBD'
+        return 'Coming Soon!'
 
     def post(self):
         """
             Uses form data and uses the provided passphrase to sing the person data
 
         """
-
-        data = json.loads(request.data) # Will break if malformed
+        try:
+            data = json.loads(request.data)
+        except ValueError:
+            return Response('Unexpected data format. Expected JSON', status=400)
 
         form = RequestSingnatureForm(**data)
 
@@ -39,24 +33,9 @@ class PassphraseSign(MethodView):
                 'success': False
             })
 
-        decrypted_private_key = AppCypher(form.data['passphrase']).decrypt(ENCRYPTED_PRIVATE_KEY)
+        signed_data = form.sign_data()
 
-        # move this to form perhaps
-        try:
-            rsa_key = RSA.importKey(decrypted_private_key)
-        except ValueError:
-            return json.dumps({
-                'errors': {'passphrase': ['Invalid passphrase', ]},
-                'success': False
-            })
+        response = {'success': True}
+        response.update(signed_data)
 
-        info = '{name} {surname} ({email})'.format(**form.data)
-
-        # does not handle well non ascii code
-        signature_b64 = base64.b64encode(str(rsa_key.sign(info, '')[0])),
-
-        return json.dumps({
-            'signature_b64': signature_b64,
-            'info': info,
-            'success': True
-        })
+        return json.dumps(response)
