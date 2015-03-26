@@ -33,7 +33,7 @@ Setup Instructions
 
 Mostly vanilla., but added here for completeness sake::
 
-    git clone https://github.com/lvisintini/exercise-cypher.git
+    git clone https://github.com/lvisintini/exercise-sign-data-app.git
     cd ./exercise-cypher
     mkvirtualenv exercise-cypher
     pip install -r requirements.txt
