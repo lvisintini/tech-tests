@@ -1,7 +1,7 @@
 Sign data app
 =============
 
-Simple app that plays around with cryptography, Flask and React.
+Simple app that plays around with cryptography.
 I started doing this as part of an interview for a job and I decided to finish it up properly.
 
 This is the gist of it
