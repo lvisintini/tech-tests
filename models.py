@@ -1,10 +1,4 @@
-import os
-
-from ojota import Ojota, set_data_source
-
-
-file_path = (os.path.dirname(os.path.abspath(__file__)))
-set_data_source(os.path.join(file_path, "data"))
+from ojota import Ojota
 
 
 class Artist(Ojota):
