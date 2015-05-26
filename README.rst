@@ -29,4 +29,4 @@ After that, put `http://127.0.0.1:8000/artist-search/` into your browser thingy 
 Tests
 -----
 
-There are a few. Run them with ``py.test tests.py``
+There are a few. Run them with ``py.test search/tests/tests.py``
