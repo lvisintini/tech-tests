@@ -1,7 +1,6 @@
 from cypher import AppCypher
 
 
-
 class TestCypher(object):
 
     def test_text_same_after_decryption(self):

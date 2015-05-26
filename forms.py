@@ -1,5 +1,4 @@
 import base64
-import hashlib
 
 from Crypto.PublicKey import RSA
 from wtforms import Form, StringField, PasswordField, validators, ValidationError
