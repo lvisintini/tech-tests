@@ -19,7 +19,7 @@ Setup Instructions
 Mostly vanilla., but added here for completeness sake::
 
     git clone https://github.com/lvisintini/exercise-search-by-age.git
-    cd ./exercise-sign-data-app
+    cd ./exercise-search-by-age
     mkvirtualenv exercise-search-by-age
     pip install -r requirements.txt
     python app.py
