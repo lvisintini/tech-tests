@@ -16,7 +16,7 @@ Setup Instructions
 ------------------
 
 This is a pure python exercise, but you may want to run the tests.
-If so, do:
+If so, do::
 
     git clone https://github.com/lvisintini/exercise-anagrams-and-chains.git
     cd ./exercise-anagrams-and-chains
