@@ -52,7 +52,7 @@ class WordsAnalyzer(object):
     def get_chains_for_word(self, word):
         ak = self.get_anagram_key_for_word(word)
 
-        chains = [[word, ]]
+        chains = []
         for reduced_anagram_key in self.get_reduced_angram_keys(ak):
             next_chains = self.get_chains_for_anagram_key(reduced_anagram_key)
 
@@ -67,11 +67,12 @@ class WordsAnalyzer(object):
         anagram_keys = sorted(self.anagrams_dict.keys(), reverse=True)
         chains = []
         for chains_for_ak in [self.get_chains_for_anagram_key(ak) for ak in anagram_keys]:
-            chains += chains_for_ak
+            chains += [chain for chain in chains_for_ak if len(chain) > 1]
         return chains
 
     def get_chains_for_anagram_key(self, ak):
         # use memoize decorator to avoid lookign for the same words
+        # includes chains with only one link
         chains = []
 
         for word in self.anagrams_dict.get(ak, []):
@@ -89,15 +90,30 @@ class WordsAnalyzer(object):
 
         return chains
 
-    def get_longest_chain(self):
+    def get_longest_chains(self):
+        anagram_keys = sorted(self.anagrams_dict.keys(), reverse=True)
         max_chain_length = 0
-        for w in self.words:
-            if len(w) > max_chain_length:
-                candidate = self.get_max_chain_len(w)
-                if candidate > max_chain_length:
-                    max_chain_length = candidate
+        chains = []
+        for chains_for_ak in [self.get_chains_for_anagram_key(ak) for ak in anagram_keys]:
+            if len(ak) < max_chain_length:
+                break
 
-        return max_chain_length
+            if len(chains_for_ak) > 1:
+                max_length_for_ak = len(max(chains_for_ak, key=len))
+                if max_length_for_ak > max_chain_length:
+                    chains = []
+                    max_chain_length = max_length_for_ak
+
+                if max_length_for_ak == max_chain_length:
+                    chains += [chain for chain in chains_for_ak if len(chain) == max_chain_length]
+
+        return chains
+
+    def get_longest_chain_length(self):
+        longest_chains = self.get_longest_chains()
+        if longest_chains:
+            return len(longest_chains[0])
+        return 0
 
     def get_max_chain_len(self, word):
         anagrams_key = ''.join(sorted(word))
@@ -118,21 +134,43 @@ if __name__ == '__main__':
     words_in_file = [w.strip() for w in f.readlines()]
     f.close()
     wa = WordsAnalyzer(words_in_file)
-    #for ag in wa.anagram_groups:
-    #    print ag
 
-    #print wa.get_chains_for_word('Angelica')
+    print '#'*10
+
+    for ag in wa.anagram_groups:
+        print ag
+
+    print '#'*10
+
+    lc = defaultdict(list)
+    for chain in wa.get_all_chains():
+        lc[len(chain)].append(chain)
+
+    for chain in lc[max(lc.keys())]:
+        print ' -> '.join(chain)
+
+    print '#'*10
+
+    for chain in wa.get_all_chains():
+        print ' -> '.join(chain)
+
+    print '#'*10
+
+    for chain in wa.get_longest_chains():
+        print ' -> '.join(chain)
+
+    print '#'*10
 
     for chain in wa.get_chains_for_word('Angelica'):
         if len(chain) > 1:
             print ' -> '.join(chain)
-    #print wa.get_loaded_anagrams_for_word('ramada')
-    #print map(len, wa.get_reduced_angram_keys('ramada'))
-    #print [map(len, c) for c in wa.get_chains_for_word('ramada')]
 
+    print '#'*10
 
-    for chain in wa.get_all_chains():
+    for chain in wa.get_chains_for_word('setbacks'):
         if len(chain) > 1:
             print ' -> '.join(chain)
 
-    #print max([len(c) for c in wa.get_all_chains()])
+    print '#'*10
+
+    print wa.get_longest_chain_length()
