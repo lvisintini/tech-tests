@@ -1,25 +1,23 @@
-import urllib2
-import random
+from functools import wraps, update_wrapper
 
-def get_new_word_file():
-    word_site = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
 
-    response = urllib2.urlopen(word_site)
-    txt = response.read()
-    WORDS = txt.splitlines()
+def memoize(func):
+    memo = {}
 
-    sample = []
-    valid_chars = map(chr, range(97, 123)) + map(chr, range(65, 91))
-    while len(sample) < 10000:
-        sel = random.choice(WORDS)
-        if len(sel) > 2 and all([x in valid_chars for x in sel]) and sel.upper() != sel and sel not in sample:
-            sample.append(sel)
+    @wraps(func)
+    def wrapper(*args):
+        wrapper.called += 1
+        if args in memo:
+            wrapper.cache_hits += 1
+            return memo[args]
 
-    sample = sorted(sample)
+        else:
+            memo[args] = func(*args)
+            wrapper.processed += 1
+            return memo[args]
 
-    f = open('words.txt', 'w')
-    f.writelines([s + '\n' for s in sample])
-    f.close()
+    wrapper.cache_hits = 0
+    wrapper.processed = 0
+    wrapper.called = 0
 
-if __name__ == '__main__':
-    get_new_word_file()
+    return wrapper

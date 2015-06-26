@@ -1,10 +1,33 @@
+import random
+import re
+import urllib2
 from collections import defaultdict
+
+from settings import WORDS_SOURCE
+from utils import memoize
 
 
 class WordsAnalyzer(object):
-    def __init__(self, words):
-        self.words = words
+    def __init__(self, words=None):
+        self.words = words or []
+        self.words.sort()
         self._anagrams_dict = None
+
+    def load_random_words_from_cloud(self, qty=10000, source_url=WORDS_SOURCE):
+        response = urllib2.urlopen(source_url)
+        regex = re.compile(r"^[a-zA-Z]{3,}$")
+
+        txt = response.read()
+        words = txt.splitlines()
+
+        self.words = []
+
+        while len(self.words) < qty:
+            sel = random.choice(words)
+            if regex.match(sel) and sel not in self.words:
+                self.words.append(sel)
+
+        self.words.sort()
 
     @property
     def anagram_groups(self):
@@ -70,6 +93,7 @@ class WordsAnalyzer(object):
             chains += [chain for chain in chains_for_ak if len(chain) > 1]
         return chains
 
+    @memoize
     def get_chains_for_anagram_key(self, ak):
         # use memoize decorator to avoid lookign for the same words
         # includes chains with only one link
@@ -130,11 +154,13 @@ class WordsAnalyzer(object):
         return max_chain + 1
 
 if __name__ == '__main__':
+    """
     f = open('words.txt', 'r')
     words_in_file = [w.strip() for w in f.readlines()]
     f.close()
     wa = WordsAnalyzer(words_in_file)
-
+    #wa = WordsAnalyzer()
+    #wa.load_random_words_from_cloud()
     print '#'*10
 
     for ag in wa.anagram_groups:
@@ -174,3 +200,19 @@ if __name__ == '__main__':
     print '#'*10
 
     print wa.get_longest_chain_length()
+
+    """
+    f = open('words.txt', 'r')
+    words_in_file = [w.strip() for w in f.readlines()]
+    f.close()
+    wa = WordsAnalyzer(words_in_file)
+
+    import time
+    start = time.clock()
+    wa.get_all_chains()
+    end = time.clock()
+    print end - start
+    print wa.get_chains_for_anagram_key.called
+    print wa.get_chains_for_anagram_key.cache_hits
+    print wa.get_chains_for_anagram_key.processed
+    print wa.get_chains_for_anagram_key.processed + wa.get_chains_for_anagram_key.cache_hits
