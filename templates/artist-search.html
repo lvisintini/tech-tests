@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{%  block body %}
+    <form method="POST">
+        {% for field in form %}
+
+            {% if field.widget.input_type != 'hidden' %}
+                <div>
+                    {{ field.label }}: {{ field }}
+                    {% if field.errors %}
+                        <ul class="errors">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+            {% else %}
+                {{ field }}
+            {% endif %}
+        {% endfor %}
+
+        <input type="submit" value="Search"/>
+    </form>
+
+{% endblock %}
