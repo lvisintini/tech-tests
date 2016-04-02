@@ -1,6 +1,6 @@
-# Frontend task resolution
+# Frontend task
 
-This code is my resolution for a frontend test I was required to tackle to to showcase may skills.
+Just a bit of showcasing.
 
 The initial aim was to use [react-grid-layout](https://github.com/STRML/react-grid-layout).
 You may see a commit where I experimented with it, but there was an issue with layout height not adjusting
