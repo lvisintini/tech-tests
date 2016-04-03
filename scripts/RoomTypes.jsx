@@ -1,7 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import RoomTypesSelector from './components/RoomTypesSelector';
+
 import Api from './api';
+import RoomTypesSelector from './components/RoomTypesSelector';
+import Friends from './components/Friends';
 
 const ICONS = {
   'super-deluxe': <i className="fa fa-star-o"></i>,
@@ -23,7 +25,7 @@ class RoomTypes extends React.Component {
       endTransition: false,
       fullHeight: true,
 
-
+      friends: [],
       roomTypes: [],
       currentType: null,
     };
@@ -31,19 +33,26 @@ class RoomTypes extends React.Component {
     this.api.fetchRoomTypes()
       .then(roomTypes => {
         const currentType = roomTypes[0].type || null;
+
+        this.api.fetchFriends(currentType)
+          .then(friends => this.setState({ friends }));
+
         this.setState({ roomTypes, currentType });
       });
 
     this.changeRoomType = this.changeRoomType.bind(this);
   }
 
-  changeRoomType(roomType) {
+  changeRoomType(currentType) {
+    this.api.fetchFriends(currentType)
+      .then(friends => this.setState({ friends }));
+
     this.setState({
       transition: false,
       zeroHeight: true,
       endTransition: false,
       fullHeight: false,
-      currentType: roomType,
+      currentType,
     });
 
     setTimeout(() => this.setState({
@@ -51,7 +60,7 @@ class RoomTypes extends React.Component {
       zeroHeight: false,
       tempHeight: true,
       fullHeight: false,
-    }), 200);
+    }), 10);
 
     setTimeout(() => this.setState({
       transition: false,
@@ -62,8 +71,9 @@ class RoomTypes extends React.Component {
   }
 
   render() {
-    const { currentType, roomTypes, transition, zeroHeight, tempHeight, fullHeight } = this.state;
-
+    const { currentType, roomTypes, friends } = this.state;
+    const { transition, zeroHeight, tempHeight, fullHeight } = this.state;
+    
     const typeData = roomTypes.find(rt => rt.type === currentType);
 
     const iconStyle = {
@@ -94,7 +104,6 @@ class RoomTypes extends React.Component {
                              roomTypes={roomTypes}
                              onChangeType={this.changeRoomType} />
         </div>
-
           {currentType ?
             <div className={roomtTypesClases}>
               <div className="row">
@@ -115,6 +124,9 @@ class RoomTypes extends React.Component {
                   <p>{typeData.description}</p>
                 </div>
               </div>
+
+              <Friends friends={friends} />
+
               {typeData.facilities.length > 0 ?
                 <div>
                   <div className="row">
@@ -136,7 +148,6 @@ class RoomTypes extends React.Component {
               : null }
             </div>
           : null }
-
       </div>
     );
   }

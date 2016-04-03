@@ -31,7 +31,7 @@ class Api {
         .set('Accept', 'application/json')
         .end((error, response) => {
           if (!error) {
-            resolve(response.body[roomType] || []);
+            resolve(response.body[roomType] ? response.body[roomType].friends : []);
           } else {
             reject(error);
           }
