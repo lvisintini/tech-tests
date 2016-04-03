@@ -1,0 +1,43 @@
+.hero {
+  background-color: white;
+
+  @include breakpoint(small) {
+    background-image: url("http://placehold.it/640x250");
+    &__container {
+      height: 15.625em;
+    }
+  }
+  @include breakpoint(medium) {
+    background-image: url("http://placehold.it/1024x250");
+    &__container {
+      height: 15.625em;
+    }
+  }
+  @include breakpoint(large) {
+    background-image: url("http://placehold.it/1200x370");
+    &__container {
+      height: 23.125em;
+    }
+  }
+  @include breakpoint(xlarge) {
+    background-image: url("http://placehold.it/1400x370");
+    &__container {
+      height: 23.125em;
+    }
+  }
+  @include breakpoint(xxlarge) {
+    background-image: url("http://placehold.it/1920x370");
+    &__container {
+      height: 23.125em;
+    }
+  }
+
+  background-position: center;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+}

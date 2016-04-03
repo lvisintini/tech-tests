@@ -1,0 +1,28 @@
+@include breakpoint(small only) {
+  .room-types-container {
+    overflow: hidden;
+  }
+
+  .transition {
+    -webkit-transition: height;
+    -webkit-transition-duration: 2s;
+    -webkit-transition-timing-function: ease;
+
+    transition: height;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+
+  }
+
+  .zero-height {
+    height: 10px;
+  }
+
+  .temp-height {
+    height: 500px;
+  }
+
+  .full-height {
+    height: auto;
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "types": [
+    {
+      "type": "super-deluxe",
+      "name": "Super deluxe",
+      "short_description": "The best of the best",
+      "facilities": [
+        "Home Theater",
+        "Jacuzzi",
+        "CCTV",
+        "Bike Storage",
+        "Internet Access",
+        "Microwave",
+        "Laundry",
+        "WIFI",
+        "Table & Chairs"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet faucibus purus, eu luctus ex commodo quis. In sed ligula rutrum, dictum nibh varius, interdum tellus. Nullam urna magna, placerat ac pellentesque at, molestie nec tortor. Maecenas vitae iaculis ex. Curabitur gravida diam tellus, in tempor arcu ullamcorper et. Donec efficitur ante nisl, et porttitor enim lacinia sed. Proin vel nisl nec libero auctor vehicula sed id nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin porttitor id massa vel efficitur. Praesent mattis, odio in euismod porta, erat dolor hendrerit neque, ac facilisis arcu lacus et mauris. Integer facilisis, neque nec ultricies tempus, neque purus finibus tortor, nec commodo enim augue ac nisi. Vestibulum vitae justo urna. Sed placerat ornare purus eu lobortis. Donec semper ultrices dignissim. Curabitur sit amet porttitor tellus."
+    },
+    {
+      "type": "deluxe",
+      "name": "Deluxe",
+      "short_description": "Very cozy accomodation",
+      "facilities": [
+        "Television",
+        "CCTV",
+        "Bike Storage",
+        "Internet Access",
+        "Microwave",
+        "Laundry",
+        "WIFI",
+        "Table & Chairs"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet faucibus purus, eu luctus ex commodo quis. In sed ligula rutrum, dictum nibh varius, interdum tellus. Nullam urna magna, placerat ac pellentesque at, molestie nec tortor. Maecenas vitae iaculis ex. Curabitur gravida diam tellus, in tempor arcu ullamcorper et. Donec efficitur ante nisl, et porttitor enim lacinia sed. Proin vel nisl nec libero auctor vehicula sed id nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin porttitor id massa vel efficitur. Praesent mattis, odio in euismod porta, erat dolor hendrerit neque, ac facilisis arcu lacus et mauris. Integer facilisis, neque nec ultricies tempus, neque purus finibus tortor, nec commodo enim augue ac nisi. Vestibulum vitae justo urna. Sed placerat ornare purus eu lobortis. Donec semper ultrices dignissim. Curabitur sit amet porttitor tellus."
+    },
+    {
+      "type": "shared",
+      "name": "Shared",
+      "short_description": "Shared accomodation for good friends",
+      "facilities": [
+        "Television",
+        "CCTV",
+        "Bike Storage",
+        "Internet Access",
+        "Microwave",
+        "Laundry",
+        "WIFI",
+        "Table & Chairs"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet faucibus purus, eu luctus ex commodo quis. In sed ligula rutrum, dictum nibh varius, interdum tellus. Nullam urna magna, placerat ac pellentesque at, molestie nec tortor. Maecenas vitae iaculis ex. Curabitur gravida diam tellus, in tempor arcu ullamcorper et. Donec efficitur ante nisl, et porttitor enim lacinia sed. Proin vel nisl nec libero auctor vehicula sed id nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin porttitor id massa vel efficitur. Praesent mattis, odio in euismod porta, erat dolor hendrerit neque, ac facilisis arcu lacus et mauris. Integer facilisis, neque nec ultricies tempus, neque purus finibus tortor, nec commodo enim augue ac nisi. Vestibulum vitae justo urna. Sed placerat ornare purus eu lobortis. Donec semper ultrices dignissim. Curabitur sit amet porttitor tellus."
+    },
+    {
+      "type": "animal-friendly",
+      "name": "Animal friendly",
+      "short_description": "The accomodation for pet lovers",
+      "facilities": [
+        "Television",
+        "CCTV",
+        "Bike Storage",
+        "Internet Access",
+        "Microwave",
+        "Laundry",
+        "WIFI",
+        "Table & Chairs"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet faucibus purus, eu luctus ex commodo quis. In sed ligula rutrum, dictum nibh varius, interdum tellus. Nullam urna magna, placerat ac pellentesque at, molestie nec tortor. Maecenas vitae iaculis ex. Curabitur gravida diam tellus, in tempor arcu ullamcorper et. Donec efficitur ante nisl, et porttitor enim lacinia sed. Proin vel nisl nec libero auctor vehicula sed id nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin porttitor id massa vel efficitur. Praesent mattis, odio in euismod porta, erat dolor hendrerit neque, ac facilisis arcu lacus et mauris. Integer facilisis, neque nec ultricies tempus, neque purus finibus tortor, nec commodo enim augue ac nisi. Vestibulum vitae justo urna. Sed placerat ornare purus eu lobortis. Donec semper ultrices dignissim. Curabitur sit amet porttitor tellus."
+    },
+    {
+      "type": "medium",
+      "name": "Medium size",
+      "short_description": "Standard accomodation for sensible needs",
+      "facilities": [
+        "Television",
+        "CCTV",
+        "Bike Storage",
+        "Internet Access",
+        "Microwave",
+        "Laundry",
+        "WIFI",
+        "Table & Chairs"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet faucibus purus, eu luctus ex commodo quis. In sed ligula rutrum, dictum nibh varius, interdum tellus. Nullam urna magna, placerat ac pellentesque at, molestie nec tortor. Maecenas vitae iaculis ex. Curabitur gravida diam tellus, in tempor arcu ullamcorper et. Donec efficitur ante nisl, et porttitor enim lacinia sed. Proin vel nisl nec libero auctor vehicula sed id nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin porttitor id massa vel efficitur. Praesent mattis, odio in euismod porta, erat dolor hendrerit neque, ac facilisis arcu lacus et mauris. Integer facilisis, neque nec ultricies tempus, neque purus finibus tortor, nec commodo enim augue ac nisi. Vestibulum vitae justo urna. Sed placerat ornare purus eu lobortis. Donec semper ultrices dignissim. Curabitur sit amet porttitor tellus."
+    },
+    {
+      "type": "small",
+      "name": "Small",
+      "short_description": "Great value accomodation",
+      "facilities": [
+        "Television",
+        "CCTV",
+        "Internet Access",
+        "Microwave",
+        "Laundry",
+        "WIFI"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet faucibus purus, eu luctus ex commodo quis. In sed ligula rutrum, dictum nibh varius, interdum tellus. Nullam urna magna, placerat ac pellentesque at, molestie nec tortor. Maecenas vitae iaculis ex. Curabitur gravida diam tellus, in tempor arcu ullamcorper et. Donec efficitur ante nisl, et porttitor enim lacinia sed. Proin vel nisl nec libero auctor vehicula sed id nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin porttitor id massa vel efficitur. Praesent mattis, odio in euismod porta, erat dolor hendrerit neque, ac facilisis arcu lacus et mauris. Integer facilisis, neque nec ultricies tempus, neque purus finibus tortor, nec commodo enim augue ac nisi. Vestibulum vitae justo urna. Sed placerat ornare purus eu lobortis. Donec semper ultrices dignissim. Curabitur sit amet porttitor tellus."
+    }
+  ]
+}
+

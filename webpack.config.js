@@ -1,10 +1,11 @@
 var webpack = require("webpack");
+require("babel-polyfill");
 
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/dev-server',
-    './scripts/demo',
+    './index',
   ],
   output: {
     path: __dirname,
@@ -16,10 +17,13 @@ module.exports = {
   ],
   module: {
     loaders: [
-      // Babel with ES2015/React presets for .jsx files
-      { test: /\.css$/, loader: "style-loader!css-loader" },
       {
-        test: /\.jsx$/,
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
+      // Babel with ES2015/React presets for .jsx files
+      {
+        test: /\.(jsx|js)$/,
         exclude: /(node_modules)/,
         loaders: [
           'react-hot',

@@ -1,10 +1,63 @@
 <!doctype>
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Frontend Task resolution</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css">
+    <!-- <script src="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
-    <div id="content-body"></div>
-    <script src="/build/bundle.js"></script>
+
+
+    <header>
+      <div class="row small-collapse">
+        <div class="small-12 columns">
+          <ul class="arrow-selector">
+            <li class="arrow-selector__item"><a href="#">Home</a></li>
+            <li class="arrow-selector__item show-for-medium"><a href="#">Accomodation</a></li>
+            <li class="arrow-selector__item"><a href="#">London</a></li>
+            <li class="arrow-selector__item arrow-selector__item--active"><a href="#">My property</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero">
+          <div class="row">
+            <div class="hero__container">
+              <div>
+                <h1>My property, London</h1>
+                <h2>2 Riding House Street, W1W 7FA</h2>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="row">
+          <div class="small-12 medium-4 medium-push-8 columns">
+            <p><i class="fa fa-star"></i> Rated average of 4.7 by 277 students</p>
+            <p><i class="fa fa-bed"></i> 588 total beds</p>
+            <p class="show-for-medium">
+              <button class="button expanded">Contact an Expert</button>
+            </p>
+          </div>
+          <div class="small-first small-12 medium-8 medium-pull-4 columns">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet faucibus purus, eu luctus ex commodo quis. In sed ligula rutrum, dictum nibh varius, interdum tellus. Nullam urna magna, placerat ac pellentesque at, molestie nec tortor. Maecenas vitae iaculis ex. Curabitur gravida diam tellus, in tempor arcu ullamcorper et. Donec efficitur ante nisl, et porttitor enim lacinia sed. Proin vel nisl nec libero auctor vehicula sed id nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin porttitor id massa vel efficitur. Praesent mattis, odio in euismod porta, erat dolor hendrerit neque, ac facilisis arcu lacus et mauris. Integer facilisis, neque nec ultricies tempus, neque purus finibus tortor, nec commodo enim augue ac nisi. Vestibulum vitae justo urna. Sed placerat ornare purus eu lobortis. Donec semper ultrices dignissim. Curabitur sit amet porttitor tellus.</p>
+
+          </div>
+          <div class="show-for-small-only small-12 columns">
+              <button class="button expanded">Contact an Expert</button>
+          </div>
+      </div>
+
+      <div id="room-types"></div>
+      <script src="/build/bundle.js"></script>
+    </div>
+    <footer>
+    </footer>
   </body>
 </html>
+
+
