@@ -2,6 +2,11 @@
 
 Just a bit of showcasing.
 
+This is a resolution of a tech test outlined in https://gist.github.com/craveytrain/16500c7e30824f908982
+
+A copy of the task is in folder ``task-outline`` in case the link above stops working.
+
+
 ## Setup
 0. Setup a new node v5.10.0 environment with [nvm](https://github.com/creationix/nvm)
 1. `git clone git@github.com:lvisintini/frontend-task.git`
